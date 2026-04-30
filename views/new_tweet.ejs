@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Tweet</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <%- include('partials/nav') %>
+    <main class="container">
+        <h2>Create New Tweet</h2>
+        <form action="/tweets" method="POST" class="tweet-form">
+            <div class="form-group">
+                <label for="tweetContent">Content:</label>
+                <textarea name="tweetContent" id="tweetContent" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn">Post Tweet</button>
+        </form>
+    </main>
+</body>
+</html>

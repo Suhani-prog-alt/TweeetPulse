@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <%- include('partials/nav') %>
+    <main class="container">
+        <h1>Welcome to Tweets</h1>
+        <p>A simple platform to share your Tweets.</p>
+        <% if(!currentUser) { %>
+            <div class="actions">
+                <a href="/login" class="btn">Login</a>
+                <a href="/register" class="btn">Register</a>
+            </div>
+        <% } %>
+        <div class="tweets-list">
+            <h2>Recent Tweets</h2>
+            <% if(tweets.length === 0) { %>
+                <p>No tweets found yet!</p>
+            <% } %>
+            <% tweets.forEach(tweet => { %>
+                <div class="tweet-card">
+                    <h3><%= tweet.username %></h3>
+                    <p><%= tweet.tweetContent %></p>
+                    <small>Posted on: <%= tweet.createdAt.toLocaleString() %></small>
+                </div>
+            <% }) %>
+        </div>
+    </main>
+</body>
+</html>

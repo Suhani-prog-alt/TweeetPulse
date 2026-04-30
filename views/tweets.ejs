@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tweets</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <%- include('partials/nav') %>
+    <main class="container">
+        <h2>My Tweets</h2>
+        <div class="tweets-list">
+            <% if(tweets.length === 0) { %>
+                <div class="no-tweets">
+                    <p>You haven't posted any tweets yet.</p>
+                    <a href="/tweets/new" class="btn">Create Your First Tweet</a>
+                </div>
+            <% } %>
+            <% tweets.forEach(tweet => { %>
+                <div class="tweet-card">
+                    <h3><%= tweet.username %></h3>
+                    <p><%= tweet.tweetContent %></p>
+                    <small>Posted on: <%= tweet.createdAt.toLocaleString() %></small>
+                    <div class="tweet-actions">
+                        <% if(currentUser && tweet.username === currentUser.username) { %>
+                            <a href="/tweets/<%= tweet._id %>/edit" class="btn btn-edit">Edit</a>
+                            <form action="/tweets/<%= tweet._id %>/delete" method="POST" style="display:inline;">
+                                <button type="submit" class="btn btn-delete">Delete</button>
+                            </form>
+                        <% } %>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </main>
+</body>
+</html>
