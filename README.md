@@ -19,14 +19,17 @@ A Twitter-inspired full-stack web application where users can post, view, and in
 | Templating | EJS (Embedded JavaScript) |
 
 ## 📁 Project Structure
+
+```
 TweeetPulse/
-├── models/          # Mongoose schemas (User, Tweet)
-├── routes/          # Express route handlers
-├── views/           # EJS templates
+├── models/           # Mongoose schemas (User, Tweet)
+├── routes/           # Express route handlers
+├── views/            # EJS templates
 ├── public/
-│   └── stylesheets/ # CSS styling
-├── app.js           # Entry point
+│   └── stylesheets/  # CSS styling
+├── app.js            # Entry point
 └── package.json
+```
 
 ## ⚙️ Getting Started
 
